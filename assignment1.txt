@@ -1,0 +1,47 @@
+#include<stdio.h>
+int max(int a,int b)
+{
+ if(a>b)
+ return a;
+ else
+ return b;
+}
+int cutrod(int n,int price[])
+{
+ int i,j,result[100];
+ for(i=1;i<100;i++)
+{
+ result[i]=-1;
+}
+result[0]=0;
+for(i=1;i<=n;i++)
+ {
+   for(j=0;j<i;j++)
+   {
+     result[i]=max(result[i],price[j]+result[i-(j+1)]);
+    }
+  }
+return result[n];
+}
+void main()
+{
+ int n,m.i,j,price[100],t,max;
+ for(i=0;i<100;i++)
+ {
+  price[i]=0;
+ }
+ printf("enter the size of price array\n");
+ scanf("%d",&m);
+ for(j=0;j<m;j++)
+{
+  printf("enter the length\n");
+  scanf("%d",&t);
+  printf("enter the price of %d length of rod\n",t);
+  scanf("%d",&price[t]);
+
+}
+printf("enter the length of rod whose price is to be maximised\n");
+scanf("%d",&n);
+max=cutrod(n, price);
+printf("the maximum price can be obtained is %d\n",max);
+}
